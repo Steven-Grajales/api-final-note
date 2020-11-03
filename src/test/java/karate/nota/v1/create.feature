@@ -2,7 +2,7 @@ Feature: Creation of notas
 
   Background:
     * url baseUrl
-    * def notaPath = '/api/v1/nota'
+    * def notaPath = '/api/v1/notas'
 
   Scenario Outline: Create a nota
     Given path notaPath
