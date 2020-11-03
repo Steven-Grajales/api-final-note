@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 public class NotaSaveCmd {
 
     @NotNull
-    private Integer nota;
+    private Double nota;
 
     @NotNull
     private Double porcentaje;
