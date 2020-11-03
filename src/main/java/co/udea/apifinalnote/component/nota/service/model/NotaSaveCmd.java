@@ -3,6 +3,7 @@ package co.udea.apifinalnote.component.nota.service.model;
 import co.udea.apifinalnote.component.nota.model.Nota;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor

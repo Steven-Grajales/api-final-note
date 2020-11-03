@@ -6,7 +6,7 @@ Feature: Creation of notas
 
   Scenario Outline: Create a nota
     Given path notaPath
-    And request notaToCreate
+    And request __row
     When method post
     Then status 201
     And match responseHeaders contains {Location:[#string]}

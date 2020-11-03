@@ -14,11 +14,9 @@ import javax.validation.constraints.NotNull;
 public class NotaSaveRequest {
 
     @NotNull
-    @NotBlank
     private Integer nota;
 
     @NotNull
-    @NotBlank
     private Double porcentaje;
 
     public static NotaSaveCmd toModel(NotaSaveRequest notaToCreate) {

@@ -25,7 +25,7 @@ public class NotaController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private NotaService notaService;
+    private final NotaService notaService;
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)

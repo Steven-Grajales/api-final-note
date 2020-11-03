@@ -21,11 +21,9 @@ public class Nota {
     private Long id;
 
     @NotNull
-    @NotBlank
     private Integer nota;
 
     @NotNull
-    @NotBlank
     private Double porcentaje;
 
     @NotNull
