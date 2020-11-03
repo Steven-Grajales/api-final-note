@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "notas")
@@ -26,4 +27,11 @@ public class Nota {
     @NotNull
     @NotBlank
     private Double porcentaje;
+
+    @NotNull
+    private LocalDateTime createDate;
+
+    @NotNull
+    private LocalDateTime updateDate;
+
 }
