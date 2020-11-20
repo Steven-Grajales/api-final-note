@@ -7,6 +7,7 @@ import co.udea.apifinalnote.component.nota.service.model.NotaSaveCmd;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,7 @@ import static org.springframework.web.util.UriComponentsBuilder.fromUriString;
 
 @RestController
 @RequestMapping(path = "api/v1/notas", produces = MediaType.APPLICATION_JSON_VALUE)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequiredArgsConstructor
 public class NotaController {
 
@@ -29,6 +31,7 @@ public class NotaController {
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
+    @CrossOrigin(exposedHeaders = {HttpHeaders.LOCATION})
     public ResponseEntity<Void> create(@Valid @NotNull @RequestBody NotaSaveRequest notaToCreate) {
         logger.debug("Begin create: notaToCreate = {}", notaToCreate);
 
