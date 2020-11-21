@@ -2,11 +2,11 @@ Feature: Creation of notas
 
   Background:
     * url baseUrl
-    * def notaPath = '/api/v1/nota'
+    * def notaPath = '/api/v1/notas'
 
   Scenario Outline: Create a nota
     Given path notaPath
-    And request notaToCreate
+    And request __row
     When method post
     Then status 201
     And match responseHeaders contains {Location:[#string]}
