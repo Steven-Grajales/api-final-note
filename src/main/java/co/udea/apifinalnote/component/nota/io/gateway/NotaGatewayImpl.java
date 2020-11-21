@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
@@ -32,5 +34,17 @@ public class NotaGatewayImpl implements NotaGateway {
         logger.debug("End save notaCreated = {}", notaCreated);
 
         return notaCreated;
+    }
+
+    @Override
+    public List<Nota> findAll() {
+        logger.debug("Begin list notes ");
+
+        List<Nota> noteList = new ArrayList<>();
+        notaRepository.findAll().forEach(noteList::add);
+
+        logger.debug("End list notes");
+
+        return noteList;
     }
 }

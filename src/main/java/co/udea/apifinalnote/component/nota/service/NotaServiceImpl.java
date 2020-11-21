@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 
 @Service
@@ -31,6 +32,18 @@ public class NotaServiceImpl implements NotaService {
         logger.debug("End create notaCreated = {}", notaCreated);
 
         return notaCreated;
+    }
+
+    @Override
+    public List<Nota> findAllNotes() {
+
+        logger.debug("Begin list notes ");
+
+        List<Nota> notaList = notaGateway.findAll();
+
+        logger.debug("End list notes");
+
+        return notaList;
     }
 
 }
