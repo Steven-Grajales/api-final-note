@@ -2,7 +2,7 @@ Feature: Creation of notas
 
   Background:
     * url baseUrl
-    * def notaPath = '/api/v1/notas'
+    * def notaPath = '/api/v1/notas/'
 
   Scenario Outline: Create a nota
     Given path notaPath
@@ -17,3 +17,8 @@ Feature: Creation of notas
       | 3.5  | 0.4        |
       | 4.5  | 0.1        |
 
+  Scenario: Get average
+    Given path notaPath + "average"
+    When method get
+    Then status 200
+    And match response == '3.45'

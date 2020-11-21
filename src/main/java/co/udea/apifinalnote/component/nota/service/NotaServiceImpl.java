@@ -46,4 +46,30 @@ public class NotaServiceImpl implements NotaService {
         return notaList;
     }
 
+    @Override
+    public Double getAverage() {
+
+        logger.debug("Begin Average calculation");
+
+        List<Nota> notaList = notaGateway.findAll();
+        Double noteAverage = calculateAverage(notaList);
+
+        logger.debug("End average calculation = {}", noteAverage);
+
+        return noteAverage;
+
+    }
+
+    private Double calculateAverage(List<Nota> notaList) {
+        Double accumulated = 0.0;
+
+        for (Nota nota: notaList) {
+
+            accumulated += nota.getNota() * nota.getPorcentaje();
+
+        }
+
+        return accumulated;
+    }
+
 }

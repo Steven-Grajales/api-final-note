@@ -12,4 +12,6 @@ public interface NotaService {
 
     List<Nota> findAllNotes();
 
+    Double getAverage();
+
 }

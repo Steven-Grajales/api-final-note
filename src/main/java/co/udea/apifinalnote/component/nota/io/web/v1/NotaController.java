@@ -63,4 +63,16 @@ public class NotaController {
         return ResponseEntity.ok(noteList);
     }
 
+    @GetMapping(path="/average")
+    public ResponseEntity<Double> getAverage() {
+
+        logger.debug("Begin get Average");
+
+        Double noteAverage = notaService.getAverage();
+
+        logger.debug("End get Average");
+
+        return ResponseEntity.ok(noteAverage);
+    }
+
 }
