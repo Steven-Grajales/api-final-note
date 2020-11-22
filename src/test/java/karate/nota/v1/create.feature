@@ -16,9 +16,3 @@ Feature: Creation of notas
       | 2    | 0.3        |
       | 3.5  | 0.4        |
       | 4.5  | 0.1        |
-
-  Scenario: Get average
-    Given path notaPath + "average"
-    When method get
-    Then status 200
-    And match response == '3.45'

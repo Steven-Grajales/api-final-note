@@ -18,4 +18,9 @@ public class NotaRunner {
         return Karate.run("list").relativeTo(getClass());
     }
 
+    @Karate.Test
+    Karate testAverage() {
+        return Karate.run("average").relativeTo(getClass());
+    }
+
 }
