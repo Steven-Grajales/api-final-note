@@ -6,6 +6,7 @@ import co.udea.apifinalnote.component.nota.model.Nota;
 import co.udea.apifinalnote.component.nota.service.NotaGateway;
 import co.udea.apifinalnote.component.nota.service.NotaService;
 import co.udea.apifinalnote.component.nota.service.NotaServiceImpl;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,23 +37,33 @@ public class NotaServiceTest {
     @InjectMocks
     private NotaServiceImpl notaService;
 
+    List<Nota> notaList;
+
+    @BeforeEach
+    public void setup() {
+        notaList = new ArrayList<>();
+
+        notaList.add(Nota.builder().nota(5.0).porcentaje(0.1).build());
+        notaList.add(Nota.builder().nota(5.0).porcentaje(0.1).build());
+    }
+
     @Test
     public void shouldReturnAverageWithNoteList() {
-
-        List<Nota> notaList = new ArrayList<>();
-        notaList.add(Nota.builder().nota(5.0).porcentaje(0.1).build());
-        notaList.add(Nota.builder().nota(5.0).porcentaje(0.1).build());
-
         when(notaGateway.findAll()).thenReturn(notaList);
-
-        System.out.println(notaService);
 
         Double average = notaService.getAverage();
 
         assertThat(average)
                 .isEqualTo(1.0);
 
+    }
 
+    @Test
+    public void shouldCalculateAverage() {
+        Double average = notaService.calculateAverage(notaList);
+
+        assertThat(average)
+                .isEqualTo(1.0);
     }
 
 }

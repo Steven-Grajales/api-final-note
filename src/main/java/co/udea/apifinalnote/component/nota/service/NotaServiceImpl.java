@@ -60,7 +60,7 @@ public class NotaServiceImpl implements NotaService {
 
     }
 
-    private Double calculateAverage(List<Nota> notaList) {
+    public Double calculateAverage(List<Nota> notaList) {
         Double accumulated = 0.0;
 
         for (Nota nota: notaList) {
